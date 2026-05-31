@@ -16,3 +16,5 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag tommasonicolis/web_server
+    - name: Push the Docker image to DockerHub
+      run: docker login -u tommasonicolis -p ${{secrets.DOCKER_TOKEN }} && docker push tommasonicolis/web_server
